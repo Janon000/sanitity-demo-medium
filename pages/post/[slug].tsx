@@ -202,6 +202,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         _id,
         _createdAt,
         title,
+        category ->{title},
+        test,
         author ->{
         name,
         image

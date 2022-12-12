@@ -2,6 +2,9 @@ export interface Post {
   _createdAt: string
   _id: string
   title: string
+  category: {
+    title: string
+  }
   author: {
     name: string
     image: string
