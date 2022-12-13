@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { motion } from 'framer-motion'
 
 const target = {
@@ -30,15 +30,15 @@ function Banner() {
               </span>
             </div>
           </div>
-          <div className="hidden overflow-hidden whitespace-nowrap md:flex">
+          {/* <div className="hidden overflow-hidden whitespace-nowrap md:flex">
             <div className="text-xl font-semibold">
               <motion.div></motion.div>
             </div>
-          </div>
-          {/* <img
-            className="hidden h-32 md:inline-flex lg:h-full"
+          </div> */}
+          <img
+            className="hidden h-[270px] object-contain md:inline-flex lg:"
             src="https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png"
-          ></img> */}
+          ></img>
         </div>
       </div>
     </div>
