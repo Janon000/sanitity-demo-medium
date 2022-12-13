@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion'
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 const target = {
   opacity: 1,
@@ -8,13 +9,15 @@ const target = {
 }
 
 function Banner() {
+  const { data: session } = useSession()
+
   return (
     <div className=" overflow-clip border-b border-black bg-yellow-400">
-      <div className="mx-auto h-[20rem] max-w-7xl bg-yellow-400 ">
+      <div className="mx-auto h-[20rem] max-w-7xl">
         <div className="flex items-center justify-between py-10 ">
           <div className="space-y-5 px-10">
             <h1 className="max-w-xl font-serif text-6xl">
-              <span className=" decoration-black decoration-4">
+              <span className="decoration-black decoration-4">
                 Stay curious.
               </span>{' '}
             </h1>
@@ -24,9 +27,16 @@ function Banner() {
             </h2>
             <div>
               <span>
-                <button className="w-[213px] items-center rounded-full border border-black bg-black pb-[9px] pt-[6px] text-[20px] text-white">
-                  Start reading
-                </button>
+                <button
+              className={`${
+                session
+                  ? 'hidden'
+                  : 'w-[213px] items-center rounded-full border border-black bg-black pb-[9px] pt-[6px] text-[20px] text-white'
+              }`}
+              onClick={!session ? () => signIn() : () => signOut()}
+            >
+              <p>{session ? `${session.user?.name}` : 'Start Reading'}</p>
+            </button>
               </span>
             </div>
           </div>
