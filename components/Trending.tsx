@@ -26,7 +26,7 @@ function Trending({ trending }: Props) {
         <div className="flex flex-wrap">
           {trending.map((post, index) => {
             return (
-              <div className="flex h-[100px] w-[376px]">
+              <div key={index} className="flex h-[100px] w-[376px]">
                 <div className="relative top-[-10px] mr-[10px]">
                   <span className="font-sans text-[30px] font-bold text-gray-300 ">
                     0{index + 1}

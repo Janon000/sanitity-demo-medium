@@ -9,12 +9,11 @@ interface Props {
 }
 
 function Feed({ posts }: Props) {
-  const newArray = posts.concat(posts);
   return (
     <div className="mx-20">
       <div className="mx-auto grid max-w-7xl grid-cols-11 py-10 ">
         <section className="col-span-full flex flex-col lg:col-span-7">
-          {newArray.map((post) => {
+          {posts.map((post) => {
             return (
               <Link key={post._id} href={`/post/${post.slug.current}`}>
                 <div className="mb-12 flex cursor-pointer overflow-hidden">

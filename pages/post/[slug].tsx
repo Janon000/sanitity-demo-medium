@@ -22,7 +22,6 @@ interface Props {
 
 // The main react jsx component
 function Post({ post }: Props) {
-    console.log(post)
 
   const[submitted, setSubmitted] = useState(false);
 
@@ -66,8 +65,12 @@ function Post({ post }: Props) {
             src={urlFor(post.author.image).url()!}
           />
           <p className="font-extra-Light text-sm">
-            Blog post by Bill Gates - Published at{' '}
-            {new Date(post._createdAt).toLocaleString()}
+            {post.author.name} - {' '}
+            {new Date(post._createdAt).toLocaleString('default', {
+                        month: 'short',
+                      }) +
+                        ' ' +
+                        new Date(post._createdAt).getDate()}
           </p>
         </div>
         <div className="mt-10">
