@@ -10,7 +10,7 @@ interface Props {
 
 function Trending({ trending }: Props) {
   return (
-    <div className='border-b py-10'>
+    <div className='border-b py-10 mx-10 '>
       <div className="mx-auto max-w-7xl">
         <div className="my-2 flex items-center">
           <div className="h-[20px] pr-3 ">
@@ -29,7 +29,7 @@ function Trending({ trending }: Props) {
               <div key={index} className="flex h-[100px] w-[376px]">
                 <div className="relative top-[-10px] mr-[10px]">
                   <span className="font-sans text-[30px] font-bold text-gray-300 ">
-                    0{index + 1}
+                    <p>0{index + 1}</p>
                   </span>
                 </div>
                 <div>

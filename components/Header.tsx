@@ -36,7 +36,7 @@ function Header() {
     <header
       className={`${
         session ? 'bg-white' : 'bg-yellow-400'
-      } sticky top-0 border-b border-black p-5`}
+      } z-10 sticky top-0 border-b border-black p-5`}
     >
       <div className="mx-auto flex max-w-7xl justify-between">
         <div className="flex items-center space-x-5">
