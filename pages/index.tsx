@@ -7,6 +7,7 @@ import Trending from '../components/Trending'
 import Feed from '../components/Feed'
 import Discover from '../components/Discover'
 
+
 interface Props {
   posts: [Post]
 }

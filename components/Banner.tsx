@@ -11,6 +11,34 @@ const target = {
 function Banner() {
   const { data: session } = useSession()
 
+  const popupCenter = (url:string, title:string) => {
+    const dualScreenLeft = window.screenLeft ?? window.screenX;
+    const dualScreenTop = window.screenTop ?? window.screenY;
+
+    const width =
+      window.innerWidth ?? document.documentElement.clientWidth ?? screen.width;
+
+    const height =
+      window.innerHeight ??
+      document.documentElement.clientHeight ??
+      screen.height;
+
+    const systemZoom = width / window.screen.availWidth;
+
+    const left = (width - 500) / 2 / systemZoom + dualScreenLeft;
+    const top = (height - 550) / 2 / systemZoom + dualScreenTop;
+
+    const newWindow = window.open(
+      url,
+      title,
+      `width=${500 / systemZoom},height=${550 / systemZoom
+      },top=${top},left=${left}`
+    );
+
+    newWindow?.focus();
+    // console.log('test')
+  }
+
   return (
     <div className=" overflow-clip border-b border-black bg-yellow-400">
       <div className="mx-auto h-[20rem] max-w-7xl">
@@ -33,7 +61,7 @@ function Banner() {
                   ? 'hidden'
                   : 'w-[213px] items-center rounded-full border border-black bg-black pb-[9px] pt-[6px] text-[20px] text-white'
               }`}
-              onClick={!session ? () => signIn() : () => signOut()}
+              onClick={!session ? () => popupCenter("/google-signin", "Sample Sign In") : () => signOut()}
             >
               <p>{session ? `${session.user?.name}` : 'Start Reading'}</p>
             </button>
